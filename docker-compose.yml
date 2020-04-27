@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+    vestigioApi:
+        container_name: vestigioApi
+        image: vestigio-api
+        ports:
+            - 5092:5092
+        restart:
+            on-failure
+        depends_on:
+            - mongoDb
+        links:
+            - "mongoDb:db"
+    
+    mongoDb:
+        container_name: vestigioApiDb
+        image: mongo
+        ports:
+            - 27017-27019:27017-27019
+        restart: 
+            on-failure
+
+
+# networks:
+#     default:
+#         external:
+#             name: test

@@ -1,0 +1,8 @@
+# create network 
+    docker network create test
+
+# Mongo
+    docker run -d -p 27017-27019:27017-27019 --name mongodb mongo
+
+# run api standAlone
+    docker run -i -t --rm -p 5092:5092  vestigio-api:latest
